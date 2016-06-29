@@ -44,8 +44,8 @@ Kia.prototype = new Make("Kia");
     3. When creating the inheritance relationship, pass in the model name
        to the make constructor function
 */
-function Soreneto () {
-  this.plateNum = null;
+function Soreneto (num) {
+  this.plateNum = num;
 }
 Soreneto.prototype = new Kia("Soreneto");
 
@@ -65,12 +65,12 @@ function Manufacturer () {
 Manufacturer.prototype = new Tire();
 
 
-function tireType(type) {
+function tireType(type, name) {
   // Manufacturer.call(this, name) ///////////////Call function////////////
   this.type = type;
   this.PSI = 0;
   this.radius = 0;
-  // this.name = name;
+  this.name = name;
 }
 tireType.prototype = new Manufacturer();
 ///////define methods outside of the main function////////
@@ -87,7 +87,12 @@ mySuv.tires.push(racing1);   ///////pushes to array set in original Car function
 console.log("mySuv", mySuv)
 
 mySuv.tires[0].PSI = 33;   //////change the PSI of a tire
-
+var mySuv = new Soreneto("5555-5555")
+// console.log("mySuv", mySuv) 
+var mySuv = new Kia("Rio");
+var defTires = new tireType("Slick", "perelli")
+mySuv.tires.push(defTires); ////pushes to car tires array and will put it inside the object
+console.log("mySuv", mySuv)    //////////after passing argument to line 47 function
 
 
 
